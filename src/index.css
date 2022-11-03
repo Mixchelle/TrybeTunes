@@ -17,3 +17,21 @@ code {
   display: flex;
   justify-content: center;
 }
+
+header{
+  background-color: black;
+  color: aliceblue;
+  display: flex;
+  text-decoration: none;
+}
+
+a{
+  text-decoration: none;
+  color: aliceblue;
+  justify-content: space-between;
+}
+
+.menu{
+  display: flex;
+  justify-content: space-between;
+}
