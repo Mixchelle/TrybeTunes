@@ -34,10 +34,10 @@ class Header extends React.Component {
       <header data-testid="header-component">
         <p>TrybeTunes</p>
         <Switch>
-          <Route exact path="/search" component={ Search } />
+          <Route exact path="/search" component={ Search } data-testid="page-search"/>
           <Route exact path="/album/:id" component={ Album } />
           <Route exact path="/favorites" component={ Favorites } />
-          <Route exact path="//profile" component={ Profile } />
+          <Route exact path="/profile" component={ Profile } />
           <Route exact path="/profile/edit" component={ ProfileEdit } />
         </Switch>
         <div data-testid="header-user-name" className="header-user-name">
@@ -45,10 +45,10 @@ class Header extends React.Component {
         </div>
         <nav className="menu">
           <Link to="/">Home</Link>
-          <Link to="/search">Search</Link>
+          <Link to="/search" data-testid="link-to-search">Search</Link>
           <Link to="/album/:id">Album</Link>
-          <Link to="/favorites">Favorites</Link>
-          <Link to="/profile">Profile</Link>
+          <Link to="/favorites" data-testid="link-to-favorites" >Favorites</Link>
+          <Link to="/profile" data-testid="link-to-profile" >Profile</Link>
           <Link to="/profile/edit">Profile edit</Link>
         </nav>
       </header>

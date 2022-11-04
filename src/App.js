@@ -11,8 +11,8 @@ class App extends React.Component {
         <div>
           <Header />
           <Switch>
-            <Route path="/" render={ () => <Login /> } />
-            <Route path="/" render={ () => <NotFound /> } />
+            <Route path="/" render={ () => <Login /> } data-testid="page-login" />
+            <Route path="/.." render={ () => <NotFound /> } data-testid="page-not-found" />
           </Switch>
         </div>
       </BrowserRouter>
