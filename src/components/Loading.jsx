@@ -6,7 +6,7 @@ class Loading extends React.Component {
     const { loading } = this.props;
     if (loading) {
       return (
-        <span>Carregando...</span>
+        <h1>Carregando...</h1>
       );
     }
     return '';

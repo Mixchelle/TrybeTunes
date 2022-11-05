@@ -30,11 +30,7 @@ class Header extends React.Component {
     return (
       <header data-testid="header-component">
         <p>TrybeTunes</p>
-        { loading
-          ? <Loading loading={ loading } />
-          : (
-            <span className="user-name">{userName}</span>
-          ) }
+        { loading ? <Loading /> : <h2 data-testid="header-user-name">{ userName }</h2> }
         <nav className="menu">
           <Link to="/">Home</Link>
           <Link to="/search" data-testid="link-to-search">Search</Link>

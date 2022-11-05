@@ -4,9 +4,9 @@ import Header from '../components/Header';
 class Album extends React.Component {
   render() {
     return (
-      <div data-testid="page-album">
+      <div>
         <Header />
-        <h1>Album</h1>
+        <h1 data-testid="page-album">Album</h1>
       </div>
     );
   }
