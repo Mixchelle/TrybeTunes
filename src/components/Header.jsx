@@ -1,10 +1,6 @@
 import React from 'react';
-import { Route, Switch, Link } from 'react-router-dom';
-import Search from '../pages/Search';
-import Album from '../pages/Album';
-import Favorites from '../pages/Favorites';
-import Profile from '../pages/Profile';
-import ProfileEdit from '../pages/ProfileEdit';
+import { Link } from 'react-router-dom';
+import Loading from './Loading';
 import { getUser } from '../services/userAPI';
 
 class Header extends React.Component {
@@ -13,6 +9,7 @@ class Header extends React.Component {
 
     this.state = {
       userName: '',
+      loading: true,
     };
   }
 
@@ -29,20 +26,15 @@ class Header extends React.Component {
   }
 
   render() {
-    const { userName } = this.state;
+    const { userName, loading } = this.state;
     return (
       <header data-testid="header-component">
         <p>TrybeTunes</p>
-        <Switch>
-          <Route exact path="/search" component={ Search } />
-          <Route exact path="/album/:id" component={ Album } />
-          <Route exact path="/favorites" component={ Favorites } />
-          <Route exact path="/profile" component={ Profile } />
-          <Route exact path="/profile/edit" component={ ProfileEdit } />
-        </Switch>
-        <div data-testid="header-user-name" className="header-user-name">
-          <span className="user-name">{ userName }</span>
-        </div>
+        { loading
+          ? <Loading loading={ loading } />
+          : (
+            <span className="user-name">{userName}</span>
+          ) }
         <nav className="menu">
           <Link to="/">Home</Link>
           <Link to="/search" data-testid="link-to-search">Search</Link>
