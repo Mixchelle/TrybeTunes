@@ -21,7 +21,7 @@ class Header extends React.Component {
     getUser()
       .then(({ name }) => {
         this.setState({
-          userName: name });
+          userName: name, loading: false });
       });
   }
 
@@ -30,7 +30,6 @@ class Header extends React.Component {
     return (
       <header data-testid="header-component">
         <p>TrybeTunes</p>
-        { loading ? <Loading /> : <h2 data-testid="header-user-name">{ userName }</h2> }
         <nav className="menu">
           <Link to="/">Home</Link>
           <Link to="/search" data-testid="link-to-search">Search</Link>
@@ -39,6 +38,13 @@ class Header extends React.Component {
           <Link to="/profile" data-testid="link-to-profile">Profile</Link>
           <Link to="/profile/edit">Profile edit</Link>
         </nav>
+        <div data-testid="header-user-name" className="header-user-name">
+          { loading
+            ? <Loading loading={ loading } />
+            : (
+              <h3 className="user-name">{userName}</h3>
+            ) }
+        </div>
       </header>
     );
   }
