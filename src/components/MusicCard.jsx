@@ -8,11 +8,13 @@ class MusicCard extends React.Component {
       previewUrl, music } = this.props;
     return (
       <div className="music-card">
-        <img
-          src={ music }
-          alt="Capa do álbum"
-          className="favorites-album-artwork"
-        />
+        <div className="imgAlbum">
+          <img
+            src={ music }
+            alt="Capa do álbum"
+            className="favorites-album-artwork"
+          />
+        </div>
         <h4>{trackName}</h4>
         <audio data-testid="audio-component" src={ previewUrl } controls>
           <track kind="captions" />
