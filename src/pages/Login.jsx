@@ -37,7 +37,8 @@ class Login extends React.Component {
   render() {
     const { name, buttonDisabled, loading, redirect } = this.state;
     return (
-      <div data-testid="page-login">
+      <div data-testid="page-login" className="login">
+        <h1>Login</h1>
         {loading ? (
           <Loading loading={ loading } />
         ) : (

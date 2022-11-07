@@ -30,14 +30,23 @@ class Header extends React.Component {
     return (
       <header data-testid="header-component">
         <p>TrybeTunes</p>
-        <nav className="menu">
-          <Link to="/">Home</Link>
-          <Link to="/search" data-testid="link-to-search">Search</Link>
-          <Link to="/album/:id">Album</Link>
-          <Link to="/favorites" data-testid="link-to-favorites">Favorites</Link>
-          <Link to="/profile" data-testid="link-to-profile">Profile</Link>
-          <Link to="/profile/edit">Profile edit</Link>
-        </nav>
+        <ul className="menu">
+          <li>
+            <Link to="/">Home</Link>
+          </li>
+          <li>
+            <Link to="/search" data-testid="link-to-search">Search</Link>
+          </li>
+          <li>
+            <Link to="/album/:id">Album</Link>
+          </li>
+          <li>
+            <Link to="/favorites" data-testid="link-to-favorites">Favorites</Link>
+          </li>
+          <li>
+            <Link to="/profile" data-testid="link-to-profile">Profile</Link>
+          </li>
+        </ul>
         <div data-testid="header-user-name" className="header-user-name">
           { loading
             ? <Loading loading={ loading } />

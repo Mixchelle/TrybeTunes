@@ -5,6 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-image: linear-gradient(to bottom right, rgb(1, 80, 90), rgb(149, 218, 189));
 }
 
 code {
@@ -22,16 +23,49 @@ header{
   background-color: black;
   color: aliceblue;
   display: flex;
-  text-decoration: none;
+  justify-content: space-around;
+  font-size: 20px;
 }
 
 a{
   text-decoration: none;
-  color: aliceblue;
+  color: white;
   justify-content: space-between;
 }
 
 .menu{
   display: flex;
   justify-content: space-between;
+}
+
+li{
+  font-size: 20px;
+  display: flex;
+  margin: 10px;
+  color:black;
+}
+
+.search{
+display: flex;
+top: 700px;
+text-align: center;
+justify-content: center;
+}
+
+.pesquisa{
+  padding: 50px;
+  font-size: 100px;
+}
+
+.text-input{
+  width:300px
+}
+
+.login{
+  padding: 500px;
+  background-color: black;
+  color: aliceblue;
+  text-align: center;
+  display: row;
+  justify-content: baseline;
 }
