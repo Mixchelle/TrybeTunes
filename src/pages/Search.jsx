@@ -40,7 +40,7 @@ class Search extends React.Component {
     return (
       <div>
         <Header />
-        <div data-testid="search-artist-input" className="search">
+        <div data-testid="page-search" className="search">
           <form className="pesquisa">
             <div className="search-div">
               <input
