@@ -45,12 +45,12 @@ class Album extends React.Component {
   render() {
     const { title, artist, music, tracks, loading } = this.state;
     return (
-      <div data-testid="page-album">
+      <div>
         <Header />
         {loading ? (
           <Loading loading={ loading } />
         ) : (
-          <div>
+          <div data-testid="page-album">
             <div>
               <img src={ music } alt={ `Capa do álbum ${title}` } />
             </div>
