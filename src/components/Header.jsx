@@ -2,6 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Loading from './Loading';
 import { getUser } from '../services/userAPI';
+import logo from '../img/logo.png';
+import '../style/header.css';
 
 class Header extends React.Component {
   constructor() {
@@ -29,7 +31,7 @@ class Header extends React.Component {
     const { userName, loading } = this.state;
     return (
       <header data-testid="header-component">
-        <p>TrybeTunes</p>
+        <img src={ logo } alt="Logo" />
         <ul className="menu">
           <li>
             <Link to="/">Home</Link>
@@ -51,7 +53,7 @@ class Header extends React.Component {
           { loading
             ? <Loading loading={ loading } />
             : (
-              <h3 className="user-name">{userName}</h3>
+              <p className="user-name">{userName}</p>
             ) }
         </div>
       </header>

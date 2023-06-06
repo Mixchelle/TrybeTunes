@@ -1,0 +1,127 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  background-color: #c9f4d8;
+}
+
+.search {
+  text-align: center;
+  padding: 20px;
+}
+
+.search form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.search-div {
+  display: flex;
+  align-items: center;
+}
+
+.search-div input {
+  width: 300px;
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+  border-bottom: 1px solid #1db954;
+  outline: none;
+}
+
+.search-div button {
+  margin-left: 10px;
+  padding: 10px 15px;
+  font-size: 16px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.search-div button:hover {
+  color: #1db954;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+ul li {
+  margin: 20px 0;
+}
+
+ul li a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  color: #000;
+}
+
+ul li a p {
+  margin: 5px 0;
+  font-size: 14px;
+}
+
+ul li a img {
+  width: 150px;
+  height: auto;
+  margin-top: 10px;
+}
+
+
+.search-results {
+  padding: 20px;
+  margin-left: 20px;
+  margin-right: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.search-results li {
+  width: calc(25% - 20px); /* 25% para 4 álbuns por linha */
+  margin-bottom: 30px;
+}
+
+.search-results h1 {
+
+  color: #fff;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.album-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.album-item {
+  width: calc(33.33% - 20px);
+  margin-bottom: 30px;
+}
+
+.album-item a {
+  display: block;
+  text-decoration: none;
+  color: #fff;
+  text-align: center;
+}
+
+.album-item img {
+  width: 100%;
+  height: auto;
+}
+
+.album-item p {
+  font-size: 14px;
+  margin: 5px 0;
+}
+
+.texto{
+  text-align: center;
+  color:#1db954;
+}

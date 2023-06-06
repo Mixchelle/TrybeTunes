@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import searchAlbumsAPI from '../services/searchAlbumsAPI';
 import Header from '../components/Header';
 import Loading from '../components/Loading';
+import '../style/search.css';
 
 class Search extends React.Component {
   constructor() {
@@ -65,9 +66,12 @@ class Search extends React.Component {
         </div>
         <Loading loading={ loading } />
         { albumsList
-          ? <h1>{albumsList.length > 0 && `Resultado de álbuns de: ${singerSearch}`}</h1>
+          ? <p className="texto">
+            {albumsList.length > 0
+            && `Resultado de álbuns de: ${singerSearch}`}
+          </p>
           : '' }
-        <ul>
+        <ul className="search-results">
           { albumsList.length > 0
             ? albumsList
               .map((album) => (
@@ -82,7 +86,7 @@ class Search extends React.Component {
                   </Link>
                 </li>
               ))
-            : <h1>Nenhum álbum foi encontrado</h1>}
+            : <p className="texto">Nenhum álbum foi encontrado</p>}
         </ul>
       </div>
     );

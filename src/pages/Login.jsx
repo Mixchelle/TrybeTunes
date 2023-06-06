@@ -1,7 +1,10 @@
 import React from 'react';
+import { Form, Button } from 'react-bootstrap';
 import { Redirect } from 'react-router-dom';
 import { createUser } from '../services/userAPI';
 import Loading from '../components/Loading';
+import logo from '../img/logo.png';
+import '../style/login.css';
 
 class Login extends React.Component {
   constructor() {
@@ -11,7 +14,8 @@ class Login extends React.Component {
       name: '',
       buttonDisabled: true,
       loading: false,
-      redirect: false };
+      redirect: false,
+    };
   }
 
   handleClick = () => {
@@ -37,35 +41,40 @@ class Login extends React.Component {
   render() {
     const { name, buttonDisabled, loading, redirect } = this.state;
     return (
-      <div data-testid="page-login" className="login">
-        <h1>Login</h1>
-        {loading ? (
-          <Loading loading={ loading } />
-        ) : (
-          <form>
-            <label htmlFor="login-name-input">
-              Nome:
-              <input
-                id="login-name-input"
-                data-testid="login-name-input"
-                placeholder="Digite seu nome"
-                name="name"
-                type="text"
-                value={ name }
-                onChange={ this.handleChange }
-              />
-            </label>
-            <button
-              type="submit"
-              data-testid="login-submit-button"
-              onClick={ this.handleClick }
-              disabled={ buttonDisabled }
-            >
-              Entrar
-            </button>
-          </form>
-        )}
-        { redirect && <Redirect to="/search" /> }
+      <div data-testid="page-login" className="login-container">
+        <div className="login-content">
+          {loading ? (
+            <Loading loading={ loading } />
+          ) : (
+            <Form>
+              <img src={ logo } alt="Logo" />
+              <Form.Group>
+                <Form.Label htmlFor="login-name-input">
+                  Name:
+                  <Form.Control
+                    id="login-name-input"
+                    data-testid="login-name-input"
+                    placeholder="Digite seu nome"
+                    name="name"
+                    type="text"
+                    value={ name }
+                    onChange={ this.handleChange }
+                  />
+                </Form.Label>
+              </Form.Group>
+              <Button
+                type="submit"
+                data-testid="login-submit-button"
+                onClick={ this.handleClick }
+                disabled={ buttonDisabled }
+                className="login-button"
+              >
+                Entrar
+              </Button>
+            </Form>
+          )}
+          {redirect && <Redirect to="/search" />}
+        </div>
       </div>
     );
   }

@@ -1,7 +1,10 @@
 import PropTypes from 'prop-types';
 import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHeart } from '@fortawesome/free-solid-svg-icons';
 import { addSong, getFavoriteSongs, removeSong } from '../services/favoriteSongsAPI';
 import Loading from './Loading';
+import '../style/musicCard.css';
 
 class MusicCard extends React.Component {
   state = {
@@ -17,33 +20,30 @@ class MusicCard extends React.Component {
     const { music } = this.props;
     this.setState({ loading: true }, async () => {
       const data = await getFavoriteSongs();
-      if (data.some((event) => event.trackId === music.trackId)) {
-        return this.setState({ loading: false, checked: false });
+      if (data.some((song) => song.trackId === music.trackId)) {
+        return this.setState({ loading: false, checked: true });
       }
       return this.setState({ loading: false, checked: false });
     });
   };
 
-  onHandleChange = async (event) => {
-    const { checked } = event.target;
+  onHandleChange = async () => {
+    const { checked } = this.state;
     const { music } = this.props;
-    this.setState({
-      loading: true,
-      checked,
-    });
-    if (checked) {
+    this.setState({ loading: true });
+    if (!checked) {
       await addSong(music);
     } else {
       await removeSong(music);
     }
-    this.setState({
+    this.setState((prevState) => ({
       loading: false,
-      checked,
-    });
+      checked: !prevState.checked,
+    }));
   };
 
   render() {
-    const { music, trackName, previewUrl, trackId } = this.props;
+    const { trackName, previewUrl, trackId } = this.props;
     const { loading, checked } = this.state;
     return (
       <div className="music-card">
@@ -51,28 +51,24 @@ class MusicCard extends React.Component {
           <Loading loading={ loading } />
         ) : (
           <div>
-            <div className="imgAlbum">
-              <img
-                src={ music }
-                alt="Capa do álbum"
-                className="favorites-album-artwork"
-              />
-            </div>
-            <h4>{ trackName}</h4>
+            <h4>{trackName}</h4>
             <audio data-testid="audio-component" src={ previewUrl } controls>
               <track kind="captions" />
               O seu navegador não suporta o elemento
               <code>audio</code>
             </audio>
-            <label htmlFor="favorite-name">
-              Favorita
+            <label className="form-check-label" htmlFor={ trackId }>
               <input
                 type="checkbox"
                 id={ trackId }
+                className="heart-icon"
+                style={ { cursor: 'pointer' } }
                 checked={ checked }
-                data-testid={ `checkbox-music-${trackId}` }
-                name="favorite"
                 onChange={ this.onHandleChange }
+              />
+              <FontAwesomeIcon
+                icon={ faHeart }
+                className={ `heart-icon ${checked ? 'text-danger' : ''}` }
               />
             </label>
           </div>
